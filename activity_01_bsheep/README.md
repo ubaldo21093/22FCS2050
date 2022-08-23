@@ -25,7 +25,7 @@ The number of sheep and their locations are obtained from the user.  The first n
 
 The program’s goal is to display the four corner coordinates of the smallest possible length rectangular fence starting at the bottommost and as far to the left as possible. The other coordinates should be written in anticlockwise order.   
 
-![pic1.png](pic1.png)
+![pic1.png](pics/pic1.png)
 
 For the given example the output should be:  
 
