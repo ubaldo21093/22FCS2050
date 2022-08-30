@@ -1,6 +1,6 @@
 # Instructions
 
-Finish the to-do's embedded in the code. Make sure you clear all tests. 
+Finish the to-do's embedded in the code. Make sure you clear all tests before submitting your work. 
 
 # Submission 
 
