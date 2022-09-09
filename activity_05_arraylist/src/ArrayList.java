@@ -4,10 +4,10 @@
  * Description: Activity 05 - ArrayList
  */
 
-public class ArrayList {
+public class ArrayList<E> {
 
     // internal array to hold the elements of our array list
-    private int data[];
+    private E data[];
 
     // variable to control how many elements we have in our array list
     private int size;
@@ -18,16 +18,16 @@ public class ArrayList {
     // enables the creation of an array list with INITIAL_CAPACITY and size zero
     public ArrayList() {
         size = 0;
-        data = new int[INITIAL_CAPACITY];
+        data = (E[]) new Object[INITIAL_CAPACITY];
     }
 
     // enables the creation of an array list with given capacity and size zero
     public ArrayList(int capacity) {
         size = 0;
         if (capacity < MIN_CAPACITY)
-            data = new int[INITIAL_CAPACITY];
+            data = (E[]) new Object[INITIAL_CAPACITY];
         else
-            data = new int[capacity];
+            data = (E[]) new Object[capacity];
     }
 
     // TODOd: return true/false depending whether the list is empty or not
@@ -42,9 +42,9 @@ public class ArrayList {
 
     // TODO: add a new element (with the value) in front of the list!
     // if list is full, increase the capacity of the array by INITIAL_CAPACITY before adding
-    public void add(int value) {
+    public void add(E value) {
         if (isFull()) {
-            int newData[] = new int[data.length + INITIAL_CAPACITY];
+            E newData[] = (E[]) new Object[data.length + INITIAL_CAPACITY];
             for (int i = 0; i < size; i++)
                 newData[i+1] = data[i];
             data = newData;
@@ -58,9 +58,9 @@ public class ArrayList {
 
     // TODO: add a new element (with the value) at the end of the list!
     // if list is full, increase the capacity of the array by INITIAL_CAPACITY before appending
-    public void append(int value) {
+    public void append(E value) {
         if (isFull()) {
-            int newData[] = new int[data.length + INITIAL_CAPACITY];
+            E newData[] = (E[])new Object[data.length + INITIAL_CAPACITY];
             for (int i = 0; i < size; i++)
                 newData[i] = data[i];
             data = newData;
@@ -83,26 +83,55 @@ public class ArrayList {
         return size;
     }
 
-    // TODO: return the element at index location
-    public int get(int index) {
-        return 0;
+    // TODOd: return the element at index location
+    public E get(int index) {
+        // validate index first
+        if (index >= 0 && index < size)
+            return data[index];
+        throw new ArrayIndexOutOfBoundsException();
     }
 
-    // TODO: sets value to location at index
-    public void set(int index, int value) {
-
+    // TODOd: sets value to location at index
+    public void set(int index, E value) {
+        if (index >= 0 && index < size)
+            data[index] = value;
+        else
+            throw new ArrayIndexOutOfBoundsException();
     }
 
-    // TODO: inserts value at the given index location
+    // TODOd: inserts value at the given index location
     // throw an exception if index is invalid
-    public void insert(int index, int value) {
-
+    public void insert(int index, E value) {
+        if (index >= 0 && index < size) {
+            if (isFull()) {
+                E newData[] = (E[]) new Object[data.length + INITIAL_CAPACITY];
+                // copy (no shift)
+                for (int i = 0; i < index; i++)
+                    newData[i] = data[i];
+                // copy and shift
+                for (int i = size-1; i >= index; i--)
+                    newData[i+1] = data[i];
+                data = newData;
+            }
+            else
+                // just shift on the current array
+                for (int i = size-1; i >= index; i--)
+                    data[i+1] = data[i];
+            data[index] = value;
+        }
+        else
+            throw new ArrayIndexOutOfBoundsException();
     }
 
     // TODO: removes the element at the given index location
     // throw an exception if index is invalid
     public void remove(int index) {
-
+        if (index >= 0 && index < size) {
+            for (int i = index; i < size-1; i++)
+                data[i] = data[i+1];
+            size--;
+        }
+        else
+            throw new ArrayIndexOutOfBoundsException();
     }
-
 }
