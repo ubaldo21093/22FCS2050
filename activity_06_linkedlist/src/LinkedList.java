@@ -62,4 +62,67 @@ public class LinkedList {
         }
         return s.trim();
     }
+
+    // TODOd: return the element at index location
+    public int get(int index) {
+        // check if index is valid 1st
+        if (index < 0 || index >= size())
+            throw new ArrayIndexOutOfBoundsException();
+        Node current = head;
+        for (int i = 0; i < index; i++)
+            current = current.getNext();
+        return current.getValue();
+    }
+
+    // TODOd: sets value to location at index
+    public void set(int index, int value) {
+        // check if index is valid 1st
+        if (index < 0 || index >= size())
+            throw new ArrayIndexOutOfBoundsException();
+        Node current = head;
+        for (int i = 0; i < index; i++)
+            current = current.getNext();
+        current.setValue(value);
+    }
+
+    // TODOd: inserts value at the given index location
+    // throw an exception if index is invalid
+    public void insert(int index, int value) {
+        // check if index is valid 1st
+        if (index < 0 || index >= size())
+            throw new ArrayIndexOutOfBoundsException();
+        // special case: index is zero
+        if (index == 0)
+            add(value);
+        else {
+            Node current = head;
+            for (int i = 0; i < index - 1; i++)
+                current = current.getNext();
+            Node newNode = new Node(value);
+            newNode.setNext(current.getNext());
+            current.setNext(newNode);
+        }
+    }
+
+    // TODO: removes the element at the given index location
+    // throw an exception if index is invalid
+    public void remove(int index) {
+        // check if index is valid 1st
+        if (index < 0 || index >= size())
+            throw new ArrayIndexOutOfBoundsException();
+        // special case: index is zero
+        if (index == 0) {
+            Node toBeRemoved = head;
+            head = head.getNext();
+            toBeRemoved.setNext(null);
+        }
+        else {
+            Node current = head;
+            for (int i = 0; i < index - 1; i++)
+                current = current.getNext();
+            Node toBeRemoved = current.getNext();
+            current.setNext(toBeRemoved.getNext());
+            toBeRemoved.setNext(null);
+        }
+    }
 }
