@@ -4,9 +4,11 @@
  * Description: Activity 06 - LinkedList
  */
 
-public class LinkedList {
+import java.util.Iterator;
 
-    private Node head;
+public class LinkedList<E> implements Iterable<E> {
+
+    private Node<E> head;
 
     public LinkedList() {
         head = null;
@@ -17,21 +19,20 @@ public class LinkedList {
         return head == null;
     }
 
-
     // TODOd: add a new element (with the value) in front of the list!
-    public void add(int value) {
-        Node newNode = new Node(value);
+    public void add(E value) {
+        Node<E> newNode = new Node<>(value);
         newNode.setNext(head);
         head = newNode;
     }
 
     // TODOd: add a new element (with the value) at the end of the list!
-    public void append(int value) {
-        Node newNode = new Node(value);
+    public void append(E value) {
+        Node<E> newNode = new Node<>(value);
         if (isEmpty())
             head = newNode;
         else {
-            Node current = head;
+            Node<E> current = head;
             while (current.getNext() != null)
                 current = current.getNext();
             // at this point, what can we tell about current?
@@ -42,7 +43,7 @@ public class LinkedList {
 
     // TODO: returns the # of elements
     public int size() {
-        Node current = head;
+        Node<E> current = head;
         int size = 0;
         while (current != null) {
             size++;
@@ -54,7 +55,7 @@ public class LinkedList {
     // TODOd: return a string representation of the object
     @Override
     public String toString() {
-        Node current = head;
+        Node<E> current = head;
         String s = "";
         while (current != null) {
             s += current + " ";
@@ -64,22 +65,22 @@ public class LinkedList {
     }
 
     // TODOd: return the element at index location
-    public int get(int index) {
+    public E get(int index) {
         // check if index is valid 1st
         if (index < 0 || index >= size())
             throw new ArrayIndexOutOfBoundsException();
-        Node current = head;
+        Node<E> current = head;
         for (int i = 0; i < index; i++)
             current = current.getNext();
         return current.getValue();
     }
 
     // TODOd: sets value to location at index
-    public void set(int index, int value) {
+    public void set(int index, E value) {
         // check if index is valid 1st
         if (index < 0 || index >= size())
             throw new ArrayIndexOutOfBoundsException();
-        Node current = head;
+        Node<E> current = head;
         for (int i = 0; i < index; i++)
             current = current.getNext();
         current.setValue(value);
@@ -87,7 +88,7 @@ public class LinkedList {
 
     // TODOd: inserts value at the given index location
     // throw an exception if index is invalid
-    public void insert(int index, int value) {
+    public void insert(int index, E value) {
         // check if index is valid 1st
         if (index < 0 || index >= size())
             throw new ArrayIndexOutOfBoundsException();
@@ -95,10 +96,10 @@ public class LinkedList {
         if (index == 0)
             add(value);
         else {
-            Node current = head;
+            Node<E> current = head;
             for (int i = 0; i < index - 1; i++)
                 current = current.getNext();
-            Node newNode = new Node(value);
+            Node<E> newNode = new Node<>(value);
             newNode.setNext(current.getNext());
             current.setNext(newNode);
         }
@@ -112,17 +113,40 @@ public class LinkedList {
             throw new ArrayIndexOutOfBoundsException();
         // special case: index is zero
         if (index == 0) {
-            Node toBeRemoved = head;
+            Node<E> toBeRemoved = head;
             head = head.getNext();
             toBeRemoved.setNext(null);
         }
         else {
-            Node current = head;
+            Node<E> current = head;
             for (int i = 0; i < index - 1; i++)
                 current = current.getNext();
-            Node toBeRemoved = current.getNext();
+            Node<E> toBeRemoved = current.getNext();
             current.setNext(toBeRemoved.getNext());
             toBeRemoved.setNext(null);
         }
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+
+            private Node<E> current = head;
+
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
+
+            @Override
+            public E next() {
+                if (hasNext()) {
+                    E value = current.getValue();
+                    current = current.getNext();
+                    return value;
+                }
+                return null;
+            }
+        };
     }
 }
