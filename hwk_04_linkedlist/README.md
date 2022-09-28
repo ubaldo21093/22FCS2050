@@ -27,4 +27,4 @@ Hint: run a loop using current set initially to head; then at each iteration, se
 
 # Submission 
 
-For this assignment you just need to submit source code LinkedList.java through Canvas.  No need to submit 
+For this assignment you just need to submit source code LinkedList.java through Canvas.  No need to submit any other file.
