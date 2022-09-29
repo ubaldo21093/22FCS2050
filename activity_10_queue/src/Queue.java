@@ -7,11 +7,16 @@
 public class Queue<E> extends LinkedList<E> {
 
     public void push(E value) {
-
+        append(value);
     }
 
     public E pop() throws Exception {
-        return null;
+        if (isEmpty())
+            throw new Exception("Queue is empty!");
+        Node<E> toBeReturned = head;
+        head = head.getNext();
+        toBeReturned.setNext(null);
+        return toBeReturned.getValue();
     }
 
 }
