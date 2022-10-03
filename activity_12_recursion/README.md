@@ -1,6 +1,6 @@
 # Overview
 
-In this activity you will practice turning loops into recursive calls. For that to work, you will need to define functions and work on the base case of your recursion. For example, consider the following loop that performs a simple summation. 
+In this activity you will practice turning loops into recursive calls. For that to work, you will need to define functions and work on the base case of your recursion. For example, consider the following loop that performs a simple 1-n summation. 
 
 ```
 int sum = 0;
@@ -22,7 +22,7 @@ int sum(int n) {
 
 # Example 2
 
-The following loop produces the sequence 2, 4, 8, 16, 32, 64, 128, 256, ...
+The following loop produces the sequence 2 4 8 16 32 64 128 256 512 1024 
 
 ```
 int an = 2;
@@ -52,8 +52,3 @@ for (int i = 3; i <= n; i++) {
 ```
 
 Write a recursive function called **fibo** that computes the fibonacci term n (an).
-
-
-
-
-
