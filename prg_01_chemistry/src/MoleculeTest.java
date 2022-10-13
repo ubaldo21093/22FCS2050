@@ -147,6 +147,7 @@ class MoleculeTest {
         // test 4: O_2H_10C_8N_4
         Molecule m4 = new Molecule("");
         m4.add(O); m4.add(H); m4.add(C); m4.add(N);
+        System.out.println(m4);
         assertEquals(4, m4.size());
         assertEquals(C, m4.get(0));
         assertEquals(H, m4.get(1));
@@ -198,5 +199,41 @@ class MoleculeTest {
         assertEquals(H, caffeine.get(1));
         assertEquals(N, caffeine.get(2));
         assertEquals(O, caffeine.get(3));
+    }
+
+    @Test
+    public void testCHAB() {
+        Element C = new Element("C", "carbon");
+        Element H = new Element("H", "hydrogen");
+        Element A = new Element("A");
+        Element B = new Element("B");
+        Molecule chab = new Molecule("");
+        chab.add(C); chab.add(H); chab.add(A); chab.add(B);
+        assertEquals(4, chab.size());
+        assertEquals(C, chab.get(0));
+        assertEquals(H, chab.get(1));
+        assertEquals(A, chab.get(2));
+        assertEquals(B, chab.get(3));
+        chab = new Molecule("");
+        chab.add(H); chab.add(A); chab.add(B); chab.add(C);
+        assertEquals(4, chab.size());
+        assertEquals(C, chab.get(0));
+        assertEquals(H, chab.get(1));
+        assertEquals(A, chab.get(2));
+        assertEquals(B, chab.get(3));
+        chab = new Molecule("");
+        chab.add(A); chab.add(B); chab.add(C); chab.add(H);
+        assertEquals(4, chab.size());
+        assertEquals(C, chab.get(0));
+        assertEquals(H, chab.get(1));
+        assertEquals(A, chab.get(2));
+        assertEquals(B, chab.get(3));
+        chab = new Molecule("");
+        chab.add(B); chab.add(C); chab.add(H); chab.add(A);
+        assertEquals(4, chab.size());
+        assertEquals(C, chab.get(0));
+        assertEquals(H, chab.get(1));
+        assertEquals(A, chab.get(2));
+        assertEquals(B, chab.get(3));
     }
 }
