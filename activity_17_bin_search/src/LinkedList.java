@@ -1,187 +1,48 @@
 /*
- * CS2050 - Computer Science II - Fall 2022
+ * CS 2050 - Computer Science II - Summer 2022
  * Instructor: Thyago Mota
- * Description: Activity 06 - LinkedList
+ * Description: Activity 17 - BinarySearch
  */
 
-import java.util.Iterator;
+import java.util.*;
 
-public class LinkedList<E extends Comparable<E>> implements Iterable<E> {
+public class BinarySearch {
 
-    private Node<E> head;
+    static boolean bsearch(int data[], int start, int end, int el) {
 
-    public LinkedList() {
-        head = null;
+        // base case #1 (parameter validation)
+        if (start > end || start < 0 || end < 0 || start >= data.length || end >= data.length)
+            return false;
+
+        // get the middle element
+        int middle = (start + end) / 2;  // or start + (end - start) / 2
+
+        // is middle the element we are searching for?
+        if (data[middle] == el)
+            return true;
+
+        // base case #2
+        if (start == end)
+            return false;
+
+        // is the element greater than middle -> go right then
+        if (el > data[middle])
+            return bsearch(data, middle + 1, end, el);
+
+        // if not, go left
+        return bsearch(data, start, middle - 1, el);
     }
 
-    // TODOd: return true/false depending whether the list is empty or not
-    public boolean isEmpty() {
-        return head == null;
-    }
-
-    // TODOd: add a new element (with the value) in front of the list!
-    public void add(E value) {
-        Node<E> newNode = new Node<>(value);
-        newNode.setNext(head);
-        head = newNode;
-    }
-
-    // TODOd: add a new element (with the value) at the end of the list!
-    public void append(E value) {
-        Node<E> newNode = new Node<>(value);
-        if (isEmpty())
-            head = newNode;
-        else {
-            Node<E> current = head;
-            while (current.getNext() != null)
-                current = current.getNext();
-            // at this point, what can we tell about current?
-            // for sure, current points to the tail node!!!
-            current.setNext(newNode);
-        }
-    }
-
-    // TODO: returns the # of elements
-    public int size() {
-        Node<E> current = head;
-        int size = 0;
-        while (current != null) {
-            size++;
-            current = current.getNext();
-        }
-        return size;
-    }
-
-    // TODOd: return a string representation of the object
-    @Override
-    public String toString() {
-        Node<E> current = head;
-        String s = "";
-        while (current != null) {
-            s += current + " ";
-            current = current.getNext();
-        }
-        return s.trim();
-    }
-
-    // TODOd: return the element at index location
-    public E get(int index) {
-        // check if index is valid 1st
-        if (index < 0 || index >= size())
-            throw new ArrayIndexOutOfBoundsException();
-        Node<E> current = head;
-        for (int i = 0; i < index; i++)
-            current = current.getNext();
-        return current.getValue();
-    }
-
-    // TODOd: sets value to location at index
-    public void set(int index, E value) {
-        // check if index is valid 1st
-        if (index < 0 || index >= size())
-            throw new ArrayIndexOutOfBoundsException();
-        Node<E> current = head;
-        for (int i = 0; i < index; i++)
-            current = current.getNext();
-        current.setValue(value);
-    }
-
-    // TODOd: inserts value at the given index location
-    // throw an exception if index is invalid
-    public void insert(int index, E value) {
-        // check if index is valid 1st
-        if (index < 0 || index >= size())
-            throw new ArrayIndexOutOfBoundsException();
-        // special case: index is zero
-        if (index == 0)
-            add(value);
-        else {
-            Node<E> current = head;
-            for (int i = 0; i < index - 1; i++)
-                current = current.getNext();
-            Node<E> newNode = new Node<>(value);
-            newNode.setNext(current.getNext());
-            current.setNext(newNode);
-        }
-    }
-
-    // TODO: removes the element at the given index location
-    // throw an exception if index is invalid
-    public void remove(int index) {
-        // check if index is valid 1st
-        if (index < 0 || index >= size())
-            throw new ArrayIndexOutOfBoundsException();
-        // special case: index is zero
-        if (index == 0) {
-            Node<E> toBeRemoved = head;
-            head = head.getNext();
-            toBeRemoved.setNext(null);
-        }
-        else {
-            Node<E> current = head;
-            for (int i = 0; i < index - 1; i++)
-                current = current.getNext();
-            Node<E> toBeRemoved = current.getNext();
-            current.setNext(toBeRemoved.getNext());
-            toBeRemoved.setNext(null);
-        }
-    }
-
-    public boolean lsearch(E value) {
-        Node<E> current = head;
-        while (current != null) {
-            if (current.getValue().equals(value))
-                return true;
-            current = current.getNext();
-        }
-        return false;
-    }
-
-    // assumption: list is sorted in ascending order
-    public boolean lsearch2(E value) {
-        Node<E> current = head;
-        while (current != null) {
-            if (current.getValue().equals(value))
-                return true;
-            else if (current.getValue().compareTo(value) > 0)
-                break;
-            current = current.getNext();
-        }
-        return false;
-    }
-
-    private int size(Node<E> start, Node<E> end) {
-        return 0;
-    }
-
-    private boolean bsearch(Node<E> start, Node<E> end, E value) {
-        return false;
-    }
-
-    public boolean bsearch(E value) {
-        return false;
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return new Iterator<E>() {
-
-            private Node<E> current = head;
-
-            @Override
-            public boolean hasNext() {
-                return current != null;
-            }
-
-            @Override
-            public E next() {
-                if (hasNext()) {
-                    E value = current.getValue();
-                    current = current.getNext();
-                    return value;
-                }
-                return null;
-            }
-        };
+    public static void main(String[] args) {
+        int data[] = new int[100];
+        Random r = new Random();
+        for (int i = 0; i < 100; i++)
+            data[i] = r.nextInt(100);
+        Arrays.sort(data); // in-place sort available from Arrays class
+        System.out.println(Arrays.toString(data));
+        if (bsearch(data, 0, data.length - 1, 27))
+            System.out.println("Found!");
+        else
+            System.out.println("Not found!");
     }
 }
