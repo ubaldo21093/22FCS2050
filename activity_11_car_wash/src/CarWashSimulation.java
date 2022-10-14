@@ -6,7 +6,6 @@
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -55,14 +54,32 @@ public class CarWashSimulation {
             String padded = String.format("%03d" , i);
             System.out.print(padded + ". ");
             System.out.println(queue);
-            // TODO: simulate that a new car arrived using CHANCE_NEW_CAR
+            // TODOd: simulate that a new car arrived using CHANCE_NEW_CAR
+            if (r.nextInt(101) <= CHANCE_NEW_CAR) {
+//                Car carArrived = CarWashSimulation.getRandomCar();
+//                queue.push(carArrived);
+                queue.push(getRandomCar());
+            }
 
+            // TODOd: if no cars is being washed, get the next car to be served from the queue
+            if (car == null) {
+                try {
+                    car = queue.pop();
+                    timer = r.nextInt(MIN_TIME_WASH, MAX_TIME_WASH+1);
+                    System.out.println("Servicing " + car + " now");
+                } catch (Exception e) {
+                    System.out.println("No cars to be washed...");
+                }
+            }
 
-            // TODO: if no cars is being washed, get the next car to be served from the queue
-
-
-            // TODO: if a car is currently being served, decrease the timer and finish servicing the car if timer reaches 0
-            
+            // TODOd: if a car is currently being served, decrease the timer and finish servicing the car if timer reaches 0
+            if (car != null) {
+                timer--;
+                if (timer == 0) {
+                    System.out.println("Done washing " + car);
+                    car = null;
+                }
+            }
         }
         System.out.println("Simulation completed!");
     }
