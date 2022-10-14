@@ -7,7 +7,10 @@ public class Example2 {
 
     // TODO
     static void seq(int an, int r, int n, int i) {
-
+        if (i <= n) {
+            System.out.print(an + " ");
+            seq(an * r, r, n, i+1);
+        }
     }
 
     public static void main(String[] args) {
