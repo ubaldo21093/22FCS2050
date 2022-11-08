@@ -12,24 +12,32 @@ public class BST<E extends Comparable<E>> {
         root = null;
     }
 
-    // TODO: implement the isEmpty method
+    // TODOd: implement the isEmpty method
     public boolean isEmpty() {
-        return false;
+        return root == null;
     }
 
     // TODO: implement the addRecursively private method
-    private BSTNode<E> addRecursively(BSTNode<E> current, final E value) {
-
-        // TODO: check if current is null, if that is the case, return a new BinNode with the value
-
-        // TODO: if current is not null...
-
-        return null;
+    private void addRecursively(BSTNode<E> current, final E value) {
+        if (value.compareTo(current.getValue()) < 0) {
+            if (current.getLeft() == null)
+                current.setLeft(new BSTNode<>(value));
+            else
+                addRecursively(current.getLeft(), value);
+        } else if (value.compareTo(current.getValue()) > 0) {
+            if (current.getRight() == null)
+                current.setRight(new BSTNode<>(value));
+            else
+                addRecursively(current.getRight(), value);
+        }
     }
 
     // TODO: implement the add method
     public void add(final E value) {
-
+        if (isEmpty())
+            root = new BSTNode<>(value);
+        else
+            addRecursively(root, value);
     }
 
     // TODO: override the toString method using a breadth first tree traversal using a queue of binary nodes
