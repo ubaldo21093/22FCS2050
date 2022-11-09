@@ -22,4 +22,4 @@ Get the code template from our GitHub repository and finish the TO-DO's.
 
 # Submission 
 
-You only need to submit the ***PatienceSort.java** source code this time.  
+You only need to submit the **PatienceSort.java** source code this time.  
