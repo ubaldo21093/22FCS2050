@@ -8,12 +8,12 @@
 public class MarathonersList extends LinkedList<Marathoner> {
 
     // TODO #3: Consider the definition of a MarathonersList class from LinkedList<Marathoner>. Then implement the following method that returns a new MarathonersList by filtering the (callee) MarathonersList based on the given gender.
-    public MarathonersList byGenre(int genre) {
+    public MarathonersList byGender(int gender) {
         return null;
     }
 
     // TODO #4: Still in MarathonersList, implement the following method that returns the faster marathoner based on the given gender.
-    public Marathoner getFaster(int genre) {
+    public Marathoner getFaster(int gender) {
         return null;
     }
 }
