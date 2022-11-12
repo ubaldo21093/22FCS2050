@@ -90,19 +90,29 @@ Upload your src.zip file to Canvas.
     +5 TODO #4: return the height of the BST from the current node
 
     +5 TODO #5: return the height of the BST
-    
+
 +35 PokemonCollection
+
     +10 TODO #6: add the given pokemon card to the collection; if type1 is defined, check if the given pokemon card has the same type1
+
     +10 TODO #7: similar to BST's searchRecursively, returning a Pokemon reference (instead of true/false); return null if the pokemon card is not found
+
     +5 TODO #8: similar to BST's search; however, this method takes the name of a Pokemon and it should return avPokemon reference (instead of true/false); return null if the pokemon card is not
+
     +10 TODO #9: return a string representation of a pokemon collection according to specifications in README file
+
 +35 PokemonDriver
+
     +20 TODO #10: open the CSV filename and use it to create a return a PokemonCollection of the given type1
+
     +15 TODO #11: create a PokemonCollection using "load" and then allow users to search for pokemon cards in the collection
 
 Bonus Points
+
 +10 PokemonDriver
+
     +5 add functionality
+    
     +5 remove functionality
 
 
