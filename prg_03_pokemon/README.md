@@ -18,7 +18,7 @@ Note that if the left side of the tree (with respect to some node) has height "L
 
 A PokemonCollection is defined using an optional "type1". That parameter is used to check pokemon additions to the collection. In other words, if the collection is defined with type1=Water and I tried to add a Fire-type pokemon, the collection remains unchanged. 
 
-The first method that you are asked to implement in PokemonCollection is **add** which adds the given pokemon card to the collection. If the type1 parameter is defined in the collection, check if the given pokemon card has the same type1 value. 
+The first method that you are asked to implement in PokemonCollection is **add** which adds the given pokemon card to the collection. If the type1 parameter is defined in the collection, check if the given pokemon card has the same type1 value before carrying out the addition. 
 
 Searching for pokemons in the collection is slightly different from how search is done in BST. Remember that **search** in BST returned true/false.  In PokemonCollection **search** actually returns the Pokemon reference (null if not found). 
 
