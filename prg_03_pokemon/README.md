@@ -4,7 +4,7 @@ In this project assignment you will create a [Pokemon](https://en.wikipedia.org/
 
 # Pokemon Class
 
-The Pokemon class definition matches the features found in the CSV file. A Pokemon can be instantiated using all of the features or simply by providing its name. There is only on TO-DO for you to finish in this class: the **compareTo** override. The comparison should be done by name (ascending order).
+The Pokemon class definition matches the features found in the CSV file. A Pokemon can be instantiated using all of the features or simply by providing its name. There is only one TO-DO for you to finish in this class: the **compareTo** override. The comparison should be done by name (ascending order).
 
 # BST Class
 
