@@ -107,19 +107,68 @@ public class BST<E extends Comparable<E>> {
     }
 
     private int numberChildren(final BSTNode<E> current) {
-        return 0;
+        if (current == null)
+            return 0;
+        if (current.getLeft() == null && current.getRight() == null)
+            return 0;
+        if (current.getLeft() != null && current.getRight() != null)
+            return 2;
+        return 1;
     }
 
     private BSTNode<E> getLeftMost(final BSTNode<E> current) {
-        return null;
+        if (current.getLeft() == null)
+            return current;
+        return getLeftMost(current.getLeft());
     }
 
-    public BSTNode<E> removeRecursively(final BSTNode<E> current, final E value) {
-        return null;
+    private BSTNode<E> removeRecursively(final BSTNode<E> current, final E value) {
+        if (value.compareTo(current.getValue()) == 0) {
+            // 1st case
+            if (numberChildren(current) == 0) {
+                return null; // so the parent node sets its (left/right) to null
+            }
+            // 2nd case
+            if (numberChildren(current) == 1) {
+                BSTNode<E> toBeReturned = null;
+                if (current.getLeft() != null) {
+                    toBeReturned = current.getLeft();
+                    current.setLeft(null);
+                }
+                else {
+                    toBeReturned = current.getRight();
+                    current.setRight(null);
+                }
+                return toBeReturned;
+            }
+            // 3rd case
+            BSTNode<E> toBeReturned = current.getRight();
+            BSTNode<E> leftMost = getLeftMost(toBeReturned);
+            leftMost.setLeft(current.getLeft());
+            current.setLeft(null);
+            current.setRight(null);
+            return toBeReturned;
+        }
+        else if (value.compareTo(current.getValue()) < 0)
+            current.setLeft(removeRecursively(current.getLeft(), value));
+        else
+            current.setRight(removeRecursively(current.getRight(), value));
+        return current;
+//        else if (value.compareTo(current.getValue()) < 0) {
+//            if (current.getLeft() == null)
+//                return false;
+//            else
+//                return searchRecursively(current.getLeft(), value);
+//        } else {
+//            if (current.getRight() == null)
+//                return false;
+//            else
+//                return searchRecursively(current.getRight(), value);
+//        }
     }
 
     public void remove(final E value) {
-
+        root = removeRecursively(root, value);
     }
 
 }
