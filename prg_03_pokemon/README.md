@@ -78,12 +78,19 @@ Upload your src.zip file to Canvas.
 # Rubric
 
 +10 Pokemon
+
     TODO #1
+
 +20 BST
+
     +5 TODO #2: return the number of elements in the BST from the given current node
+
     +5 TODO #3: return the number of elements in the BST
+
     +5 TODO #4: return the height of the BST from the current node
+
     +5 TODO #5: return the height of the BST
+    
 +35 PokemonCollection
     +10 TODO #6: add the given pokemon card to the collection; if type1 is defined, check if the given pokemon card has the same type1
     +10 TODO #7: similar to BST's searchRecursively, returning a Pokemon reference (instead of true/false); return null if the pokemon card is not found
