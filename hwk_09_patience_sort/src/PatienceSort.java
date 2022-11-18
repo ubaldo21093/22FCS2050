@@ -13,11 +13,58 @@ public class PatienceSort {
 
         // this is the list of stacks (each a stack of integers)
         LinkedList<Stack<Integer>> stacks = new LinkedList<>();
+        Stack<Integer> intStack = new Stack<>();
 
         // TODO #1: loop through the data array and get the array's current element
+        for (int i = 0; i < data.length; i++){
+            Stack<Integer> newStack = new Stack<>();
+            newStack.push(data[i]);
+            if (stacks.isEmpty()){
+                stacks.append(newStack);
+            }else{
+                for (int y = 0; y < stacks.size();){
+                    // add dont append value added
+                    if (stacks.get(y).peek() > newStack.peek()){
+                        stacks.get(y).push(newStack.pop());
+                        break;
+
+                    }else{
+                        y++;
+                        if (y == stacks.size()){
+                            Stack<Integer> newInt = new Stack<>();
+                            newInt.push(newStack.pop());
+                            stacks.append(newInt);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
         // TODO #2: at each iteration, find a stack available and push the array's current element onto it
-
+//        while (!intStack.isEmpty()){
+//            if (stacks.isEmpty()){
+//                Stack<Integer> newI = new Stack<>();
+//                newI.push(intStack.pop());
+//                stacks.add(newI);
+//            }
+//            if (!stacks.isEmpty()){
+//                for (int i = 0; i < stacks.size();){
+//                    if (stacks.get(i).peek() > intStack.peek()){
+//                        stacks.get(i).append(intStack.pop());
+//                        break;
+//                    }else{
+//                        if (stacks.get(i).peek() < intStack.peek()){
+//                            i++;
+//                        }
+//                    }
+//                }
+//                Stack<Integer> newInt = new Stack<>();
+//                newInt.push(intStack.pop());
+//                stacks.append(newInt);
+//            }
+//
+//        }
         // TODO #3: if there isn't a stack available, create a new one, push the data array's current element onto it, and then append the newly created stack to the list of stacks.
 
         // merge of stacks

@@ -107,19 +107,58 @@ public class BST<E extends Comparable<E>> {
     }
 
     private int numberChildren(final BSTNode<E> current) {
-        return 0;
+        if (current == null){
+            return 0;
+        }
+        if (current.getLeft() == null && current.getRight() == null){
+            return 0;
+        }
+        if (current.getLeft() != null && current.getRight() != null){
+            return 2;
+        }
+        return 1;
     }
 
     private BSTNode<E> getLeftMost(final BSTNode<E> current) {
-        return null;
+        if (current.getLeft() == null){
+            return current;
+        }
+        return getLeftMost(current.getLeft());
     }
 
     public BSTNode<E> removeRecursively(final BSTNode<E> current, final E value) {
-        return null;
+        if (value.compareTo(current.getValue()) == 0){
+            if (numberChildren(current) == 0){
+                return null;
+            }
+            if (numberChildren(current) == 1){
+                BSTNode<E> toBeReturned = null;
+                if (current.getLeft() != null){
+                    toBeReturned = current.getLeft();
+                    current.setLeft(null);
+                }else{
+                    toBeReturned = current.getRight();
+                    current.setRight(null);
+                }
+                return toBeReturned;
+            }
+            BSTNode<E> toBeReturned = null;
+            BSTNode<E> leftMost = getLeftMost(toBeReturned);
+            leftMost.setLeft(current.getLeft());
+            current.setLeft(null);
+            current.setRight(null);
+            return toBeReturned;
+        }
+        else if (value.compareTo(current.getValue()) < 0){
+            current.setLeft(removeRecursively(current.getLeft(),value));
+        }else{
+            current.setRight(removeRecursively(current.getRight(),value));
+        }
+        return current;
     }
 
     public void remove(final E value) {
-
+        root = removeRecursively(root,value);
     }
 
 }
