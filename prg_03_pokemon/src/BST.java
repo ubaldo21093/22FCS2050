@@ -1,24 +1,43 @@
 /*
  * CS2050 - Computer Science II - Fall 2022
  * Instructor: Thyago Mota
- * Description: Activity 22 - BST class
+ * Student(s) Name(s):
+ * Description: prg_03 - BST
  */
 
 public class BST<E extends Comparable<E>> {
 
-    private BSTNode<E> root;
+    protected BSTNode<E> root;
 
     public BST() {
         root = null;
     }
 
-    // TODOd: implement the isEmpty method
+    // TODO #2: return the number of elements in the BST from the given current node
+    private int sizeRecursively(BSTNode<E> current) {
+        return 0;
+    }
+
+    // TODO #3: return the number of elements in the BST
+    public int size() {
+        return 0;
+    }
+
+    // TODO #4: return the height of the BST from the current node
+    private int heightRecursively(BSTNode<E> current) {
+        return 0;
+    }
+
+    // TODO #5: return the height of the BST
+    public int height() {
+        return 0;
+    }
+
     public boolean isEmpty() {
         return root == null;
     }
 
-    // TODO: implement the addRecursively private method
-    private void addRecursively(BSTNode<E> current, final E value) {
+    protected void addRecursively(BSTNode<E> current, final E value) {
         if (value.compareTo(current.getValue()) < 0) {
             if (current.getLeft() == null)
                 current.setLeft(new BSTNode<>(value));
@@ -32,7 +51,6 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
-    // TODO: implement the add method
     public void add(final E value) {
         if (isEmpty())
             root = new BSTNode<>(value);
@@ -40,10 +58,8 @@ public class BST<E extends Comparable<E>> {
             addRecursively(root, value);
     }
 
-    // TODO: override the toString method using a breadth first tree traversal using a queue of binary nodes
     @Override
     public String toString() {
-        //return postOrder(root);
         String out = "";
         Queue<BSTNode<E>> qu = new Queue<>();
         if (root != null) {
@@ -63,7 +79,6 @@ public class BST<E extends Comparable<E>> {
         return out;
     }
 
-    // TODO: implement searchRecursively
     private boolean searchRecursively(final BSTNode<E> current, final E value) {
         if (value.compareTo(current.getValue()) == 0)
             return true;
@@ -80,7 +95,6 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
-    // TODO: boolean search
     public boolean search(final E value) {
         if (isEmpty())
             return false;
@@ -154,21 +168,9 @@ public class BST<E extends Comparable<E>> {
         else
             current.setRight(removeRecursively(current.getRight(), value));
         return current;
-//        else if (value.compareTo(current.getValue()) < 0) {
-//            if (current.getLeft() == null)
-//                return false;
-//            else
-//                return searchRecursively(current.getLeft(), value);
-//        } else {
-//            if (current.getRight() == null)
-//                return false;
-//            else
-//                return searchRecursively(current.getRight(), value);
-//        }
     }
 
     public void remove(final E value) {
         root = removeRecursively(root, value);
     }
-
 }
