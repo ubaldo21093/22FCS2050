@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/22FCS2050.iml" filepath="$PROJECT_DIR$/.idea/22FCS2050.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_01_bsheep/activity_01_bsheep.iml" filepath="$PROJECT_DIR$/activity_01_bsheep/activity_01_bsheep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_02_design/activity_02_design.iml" filepath="$PROJECT_DIR$/activity_02_design/activity_02_design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_03_bee/activity_03_bee.iml" filepath="$PROJECT_DIR$/activity_03_bee/activity_03_bee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_04_fractions/activity_04_fractions.iml" filepath="$PROJECT_DIR$/activity_04_fractions/activity_04_fractions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_05_arraylist/activity_05_arraylist.iml" filepath="$PROJECT_DIR$/activity_05_arraylist/activity_05_arraylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_06_linkedlist/activity_06_linkedlist.iml" filepath="$PROJECT_DIR$/activity_06_linkedlist/activity_06_linkedlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_07_stack/activity_07_stack.iml" filepath="$PROJECT_DIR$/activity_07_stack/activity_07_stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_08_balanced_par/activity_08_balanced_par.iml" filepath="$PROJECT_DIR$/activity_08_balanced_par/activity_08_balanced_par.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_09_hanoi_towers/activity_09_hanoi_towers.iml" filepath="$PROJECT_DIR$/activity_09_hanoi_towers/activity_09_hanoi_towers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_10_queue/activity_10_queue.iml" filepath="$PROJECT_DIR$/activity_10_queue/activity_10_queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_11_car_wash/activity_11_car_wash.iml" filepath="$PROJECT_DIR$/activity_11_car_wash/activity_11_car_wash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_12_recursion/activity_12_recursion.iml" filepath="$PROJECT_DIR$/activity_12_recursion/activity_12_recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_13_koch_snowflake/activity_13_koch_snowflake.iml" filepath="$PROJECT_DIR$/activity_13_koch_snowflake/activity_13_koch_snowflake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_14_exhaustive_search/activity_14_exhaustive_search.iml" filepath="$PROJECT_DIR$/activity_14_exhaustive_search/activity_14_exhaustive_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_15_code_breaker/activity_15_code_breaker.iml" filepath="$PROJECT_DIR$/activity_15_code_breaker/activity_15_code_breaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_16_linear_search/activity_16_linear_search.iml" filepath="$PROJECT_DIR$/activity_16_linear_search/activity_16_linear_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_17_bin_search/activity_17_bin_search.iml" filepath="$PROJECT_DIR$/activity_17_bin_search/activity_17_bin_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_18_bubble_sort/activity_18_bubble_sort.iml" filepath="$PROJECT_DIR$/activity_18_bubble_sort/activity_18_bubble_sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_19_selection_sort/activity_19_selection_sort.iml" filepath="$PROJECT_DIR$/activity_19_selection_sort/activity_19_selection_sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_20_insertion_sort/activity_20_insertion_sort.iml" filepath="$PROJECT_DIR$/activity_20_insertion_sort/activity_20_insertion_sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_21_merge_sort/activity_21_merge_sort.iml" filepath="$PROJECT_DIR$/activity_21_merge_sort/activity_21_merge_sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_22_bst/activity_22_bst.iml" filepath="$PROJECT_DIR$/activity_22_bst/activity_22_bst.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_01_book/hwk_01_book.iml" filepath="$PROJECT_DIR$/hwk_01_book/hwk_01_book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_02_roots/hwk_02_roots.iml" filepath="$PROJECT_DIR$/hwk_02_roots/hwk_02_roots.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_04_linkedlist/hwk_04_linkedlist.iml" filepath="$PROJECT_DIR$/hwk_04_linkedlist/hwk_04_linkedlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_05_postfix/hwk_05_postfix.iml" filepath="$PROJECT_DIR$/hwk_05_postfix/hwk_05_postfix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_06_has_priority/hwk_06_has_priority.iml" filepath="$PROJECT_DIR$/hwk_06_has_priority/hwk_06_has_priority.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_07_comparable/hwk_07_comparable.iml" filepath="$PROJECT_DIR$/hwk_07_comparable/hwk_07_comparable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_08_bubblesort/hwk_08_bubblesort.iml" filepath="$PROJECT_DIR$/hwk_08_bubblesort/hwk_08_bubblesort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwk_09_patience_sort/hwk_09_patience_sort.iml" filepath="$PROJECT_DIR$/hwk_09_patience_sort/hwk_09_patience_sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/midterm_makeup/midterm_makeup.iml" filepath="$PROJECT_DIR$/midterm_makeup/midterm_makeup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prg_01_chemistry/prg_01_chemistry.iml" filepath="$PROJECT_DIR$/prg_01_chemistry/prg_01_chemistry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prg_02_minesweeper/prg_02_minesweeper.iml" filepath="$PROJECT_DIR$/prg_02_minesweeper/prg_02_minesweeper.iml" />
+    </modules>
+  </component>
+</project>
