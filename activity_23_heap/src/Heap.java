@@ -23,22 +23,71 @@ public class Heap<E extends Comparable<E>> {
         return (index - 1) / 2;
     }
 
-    // TODO #1: implement the swim operation as described in the instructions
-    // hints: the given index points to the recently added node; index 0 is the root node;
-    // use a while loop until you reach the root node (bottom-up);
-    // at each iteration, check if the current value is greater than the parent's value
-    // (use parentOf helper method and compareTo); if that's the case, swap the current node's value
-    //  with the parent node's value; then update index to move up in the tree;
-    // the procedure can also be done recursively
-    private void swim(int index) {
+    // TODO #1 implement the sift up method
+    private void siftUp(int index) {
+        int parent = parentOf(index);
+        if (data[index].compareTo(data[parent]) > 0) {
+            E temp = data[index];
+            data[index] = data[parent];
+            data[parent] = temp;
+            siftUp(parent);
+        }
+    }
 
+    // TODO #2: implement the sift down method
+    private void siftDown(int index) {
+        int left = 2 * index + 1;
+        int right = left + 1;
+        // case 1: has left and right
+        if (left < size && right < size) {
+            int greater = left;
+            if (data[greater].compareTo(data[right]) < 0)
+                greater = right;
+            if (data[index].compareTo(data[greater]) < 0) {
+                E temp = data[index];
+                data[index] = data[greater];
+                data[greater] = temp;
+                siftDown(greater);
+            }
+        }
+        // case 2: only has left
+        else if (left < size) {
+            if (data[index].compareTo(data[left]) < 0) {
+                E temp = data[index];
+                data[index] = data[left];
+                data[left] = temp;
+                siftDown(left);
+            }
+        }
+        // case 3: only has right
+        else if (right < size) {
+            if (data[index].compareTo(data[right]) < 0) {
+                E temp = data[index];
+                data[index] = data[right];
+                data[right] = temp;
+                siftDown(right);
+            }
+        }
+        // case 4: no children -> do nothing!
     }
 
     public void add(final E value) {
         if (isFull())
             return;
         data[size++] = value;
-        swim(size-1);
+        siftUp(size-1);
+    }
+
+    public E remove() throws Exception{
+        if (size > 0) {
+            E value = data[0];
+            data[0] = data[size-1];
+            size--;
+            siftDown(0);
+            return value;
+        }
+        else
+            throw new Exception("Heap is empty!");
     }
 
     @Override
@@ -49,7 +98,24 @@ public class Heap<E extends Comparable<E>> {
         return s.trim();
     }
 
-    public static void main(String[] args) {
-        // TODO #2: instantiate a heap and add the following elements: 18, 13, 5, 10, 1, 2, 20; then display the heap using toString
+    public static void main(String[] args) throws Exception {
+        // TODO #3: instantiate a heap and add the following elements: 18, 13, 5, 10, 1, 2, 20; then display the heap using toString
+        Heap<Integer> heap = new Heap<>();
+        heap.add(18);
+        heap.add(13);
+        heap.add(5);
+        heap.add(10);
+        heap.add(1);
+        heap.add(2);
+        heap.add(20);
+        System.out.println(heap);
+
+        while (true) {
+            try {
+                System.out.println("[" + heap.remove() + "] " + heap);
+            } catch (Exception ex) {
+                break;
+            }
+        }
     }
 }
